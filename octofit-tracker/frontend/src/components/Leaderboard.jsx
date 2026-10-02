@@ -1,4 +1,7 @@
 import ResourceTable from './ResourceTable.jsx'
+import { fetchCollection as fetch } from '../api.js'
+
+const fetchPage = (pageUrl, signal) => fetch('/api/leaderboard/', 'leaderboard', pageUrl, signal)
 
 const columns = [
   ['rank', 'Rank'], ['username', 'User'], ['team', 'Team'],
@@ -6,5 +9,5 @@ const columns = [
 ]
 
 export default function Leaderboard() {
-  return <ResourceTable title="Leaderboard" resource="leaderboard" endpoint="/api/leaderboard/" columns={columns} />
+  return <ResourceTable title="Leaderboard" resource="leaderboard" fetchPage={fetchPage} columns={columns} />
 }

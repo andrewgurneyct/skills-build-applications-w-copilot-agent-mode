@@ -34,9 +34,11 @@ function App() {
       <main className="container py-4">
         <Routes>
           <Route path="/" element={<Navigate to="/activities" replace />} />
-          {views.map(([path, , Component]) => (
-            <Route key={path} path={`/${path}`} element={<Component />} />
-          ))}
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/workouts" element={<Workouts />} />
           <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>
       </main>

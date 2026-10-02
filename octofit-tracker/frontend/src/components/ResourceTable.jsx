@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection } from '../api.js'
 
 function formatValue(value) {
   if (value === null || value === undefined || value === '') return '-'
@@ -10,13 +9,13 @@ function formatValue(value) {
   return String(value)
 }
 
-export default function ResourceTable({ title, resource, endpoint, columns }) {
+export default function ResourceTable({ title, resource, fetchPage, columns }) {
   const [request, setRequest] = useState({ pageUrl: null })
   const [result, setResult] = useState(null)
 
   useEffect(() => {
     const controller = new AbortController()
-    fetchCollection(endpoint, resource, request.pageUrl, controller.signal)
+    fetchPage(request.pageUrl, controller.signal)
       .then((data) => {
         if (!controller.signal.aborted) setResult({ request, data })
       })
@@ -24,7 +23,7 @@ export default function ResourceTable({ title, resource, endpoint, columns }) {
         if (!controller.signal.aborted) setResult({ request, error: error.message })
       })
     return () => controller.abort()
-  }, [endpoint, resource, request])
+  }, [fetchPage, request])
 
   const current = result?.request === request ? result : null
   const data = current?.data
