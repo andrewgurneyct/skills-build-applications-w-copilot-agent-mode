@@ -1,0 +1,62 @@
+.app-header {
+  background: #fff;
+  border-bottom: 1px solid #d8e2dd;
+}
+
+.app-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #233e32;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.app-brand img {
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.app-nav {
+  gap: 4px 12px;
+}
+
+.app-nav .nav-link {
+  color: #555f5a;
+  padding: 8px 0;
+  border-bottom: 3px solid transparent;
+}
+
+.app-nav .nav-link.active {
+  color: #176c45;
+  border-color: #176c45;
+}
+
+.app-nav .nav-link:hover {
+  color: #176c45;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.table {
+  --bs-table-bg: #fff;
+  --bs-table-hover-bg: #edf5f0;
+  border-color: #d8e2dd;
+}
+
+.table th {
+  color: #425b4d;
+  background: #e9efeb;
+  white-space: nowrap;
+}
+
+.table td {
+  min-width: 100px;
+  max-width: 320px;
+  overflow-wrap: anywhere;
+}
