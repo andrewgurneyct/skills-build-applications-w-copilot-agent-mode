@@ -1,7 +1,7 @@
 import express from 'express';
 import db from './config/database';
 import { Activity } from './models/Activity';
-import { LeaderboardEntry } from './models/LeaderboardEntry';
+import { Leaderboard } from './models/Leaderboard';
 import { Team } from './models/Team';
 import { User } from './models/User';
 import { Workout } from './models/Workout';
@@ -48,7 +48,7 @@ app.get('/api/activities/', async (_request, response, next) => {
 
 app.get('/api/leaderboard/', async (_request, response, next) => {
   try {
-    const leaderboard = await LeaderboardEntry.find().sort({ rank: 1 });
+    const leaderboard = await Leaderboard.find().sort({ rank: 1 });
     response.json({ leaderboard });
   } catch (error) {
     next(error);

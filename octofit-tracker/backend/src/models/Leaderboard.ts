@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-const leaderboardEntrySchema = new Schema(
+const leaderboardSchema = new Schema(
   {
     username: { type: String, required: true, trim: true },
     team: { type: String, required: true, trim: true },
@@ -11,4 +11,4 @@ const leaderboardEntrySchema = new Schema(
   { timestamps: true },
 );
 
-export const LeaderboardEntry = mongoose.model('LeaderboardEntry', leaderboardEntrySchema);
+export const Leaderboard = mongoose.model('Leaderboard', leaderboardSchema);
